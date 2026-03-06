@@ -1,4 +1,4 @@
-# Spring Boot Docker Setup
+# Using Only Dockerfile
 
 This project demonstrates a **multi-stage Dockerfile** for a Spring Boot application. The Dockerfile:
 
