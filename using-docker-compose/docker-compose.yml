@@ -1,0 +1,28 @@
+services:
+  docker-compose-app-db:
+    image: postgres:18
+    container_name: docker-compose-app-db
+    environment:
+      POSTGRES_DB: usersDB
+      POSTGRES_USER: sagar
+      POSTGRES_PASSWORD: "sagar@123"
+    networks:
+      - docker-compose-app-network
+    volumes:
+      - docker-compose-app-data:/var/lib/postgresql
+
+  docker-compose-app-service:
+    image: sagar855/docker-compose-app:1.0
+    container_name: docker-compose-app-service
+    ports:
+      - "8090:8090"
+    networks:
+      - docker-compose-app-network
+    depends_on:
+      - docker-compose-app-db
+
+networks:
+  docker-compose-app-network:
+
+volumes:
+  docker-compose-app-data:
